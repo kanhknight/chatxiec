@@ -19,9 +19,15 @@ from mongoengine import *
         viewer = IntField()
         video = IntField()
         image = StringField()
-        upcomming = ListField()
 
     class Message(document):
         userid = StringField()
         message = ListField()
         message_status = IntField() # trạng thái
+
+    class Video(document):
+        roomid = StringField()
+        upcomming = ListField()
+        videoimage = StringField()
+        link = StringField()
+        type = StringField()
