@@ -1,6 +1,6 @@
 from mongoengine import *
 
-    # design database
+# design database
 
 
 class User(Document):
@@ -26,7 +26,7 @@ class Room(Document):
 class Message(Document):
         userid = StringField()
         message = ListField()
-        message_status = IntField() # trạng thái
+        message_status = IntField() # trạng thái hiển thị hoặc không
 
 class Video(Document):
         roomid = StringField()
