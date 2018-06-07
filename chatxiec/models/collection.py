@@ -1,7 +1,9 @@
 from mongoengine import *
 
-    #design database
-    class User(document):
+    # design database
+
+
+class User(Document):
         username = StringField()
         fullname = StringField()
         password = StringField()
@@ -9,10 +11,11 @@ from mongoengine import *
         phonenumber = IntField()
         image = StringField()
         role = IntField()
-        status = IntField() # trạng thái cấm, ban,..
+        status = IntField()  # trạng thái cấm, ban,..
         message_status = IntField()
 
-    class Room(document):
+
+class Room(Document):
         title = StringField()
         description = StringField()
         password = StringField()
@@ -20,12 +23,12 @@ from mongoengine import *
         video = IntField()
         image = StringField()
 
-    class Message(document):
+class Message(Document):
         userid = StringField()
         message = ListField()
         message_status = IntField() # trạng thái
 
-    class Video(document):
+class Video(Document):
         roomid = StringField()
         upcomming = ListField()
         videoimage = StringField()
