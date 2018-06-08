@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <title>Chat Xiec</title>
   {% include 'meta-data.html'%}
 </head>
+
 <body>
   <!-- <input type="text" id="text-message">
   <input type="button" id="btn-message" value="Send">
@@ -13,14 +15,13 @@
   <!-- {%include 'private-message.html'%} -->
 
 
+
   <!-- <h1> Herokuapp</h1>
   {% if "loggedin" in session %}
   <h2>hello:{{username}}</h2>
-  <br>
-  {% else %}
-  <a href="{{url_for('login')}}" method = 'get'>login</a>
-  <br>
-  {% endif %}
+  <br> {% else %}
+  <a href="{{url_for('login')}}" method='get'>login</a>
+  <br> {% endif %}
   <a href="{{url_for('logout')}}">logout</a>
   <br>
   <a href="{{url_for('register')}}" method = 'post'>register</a> -->
@@ -33,6 +34,7 @@
       <div class=""></div>
     </div>
   </div>
-
+  <br> {%include 'private-message.html'%}
+  <a href="{{url_for('register')}}" method='post'>register</a>
 </body>
 </html>

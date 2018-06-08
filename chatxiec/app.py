@@ -12,6 +12,10 @@ app.secret_key = 'this key is secret'
 app.config['SECRET_KEY'] = '123@#@45690@#'
 socketio = SocketIO(app)
 
+@socketio.on('connect', namespace = '/player')
+def connect():
+    print(request.sid)
+
 #Tin nhắn global
 @socketio.on('Client-send-message', namespace= '/message')
 def Client_send_message(data):
@@ -93,6 +97,18 @@ def logout():
     # return "{0}".format(session['loggedin']) # username truyen dc qua session
     del session['loggedin']
     return render_template('index.html')
+
+
+# Send play and pause
+@socketio.on('client-send-play-pause', namespace='/player')
+def play_pause(data):
+    emit('server-send-play-pause', data, broadcast = True)
+    print(data)
+
+
+@app.route('/player')
+def player():
+    return render_template('player.html')
 
 
 if __name__ == '__main__':
