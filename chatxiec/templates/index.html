@@ -13,13 +13,11 @@
 <body>
   <!-- <input type="text" id="text-message">
   <input type="button" id="btn-message" value="Send">
-<<<<<<< HEAD
   <div id="message-container"> -->
-    {%include 'private-message.html'%}
     
   </div>
-=======
-  <div id="message-container"></div>
+
+<div id="message-container"></div>
 
 
   <h1> Herokuapp</h1>
@@ -33,6 +31,7 @@
   <a href="{{url_for('logout')}}">logout</a>
   <br>
   <a href="{{url_for('register')}}" method = 'post'>register</a>
->>>>>>> 4a6dbfd63a830f86d61564e79f82cba40fd96d8d
-</body>
+  
+  {%include 'private-message.html'%}
+/body>
 </html>
