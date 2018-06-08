@@ -2,25 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Chat Xiec</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="../static/css/style.css" />
-  <script src="../static/js/jquery-3.3.1.min.js"></script>
-  <script src="../static/js/socket.io.js"></script>
-  <script src="../static/js/main.js"></script>
+  {% include 'meta-data.html'%}
 </head>
 <body>
   <!-- <input type="text" id="text-message">
   <input type="button" id="btn-message" value="Send">
-  <div id="message-container"> -->
-    
-  </div>
+  <div id="message-container">  </div> -->
 
-<div id="message-container"></div>
+  <!-- {%include 'private-message.html'%} -->
 
 
-  <h1> Herokuapp</h1>
+  <!-- <h1> Herokuapp</h1>
   {% if "loggedin" in session %}
   <h2>hello:{{username}}</h2>
   <br>
@@ -30,8 +23,15 @@
   {% endif %}
   <a href="{{url_for('logout')}}">logout</a>
   <br>
-  <a href="{{url_for('register')}}" method = 'post'>register</a>
-  
-  {%include 'private-message.html'%}
-/body>
+  <a href="{{url_for('register')}}" method = 'post'>register</a> -->
+
+  <div class="h-80px w-100 d-flex justify-content-between bg-dark">
+    <div id="logo" class="col-md-1 h-70px bg-primary"></div>
+    <h1 class ="text-primary">Let's chat and watch together!</h1>
+    <div class="col-md-4 h-80px bg-primary">
+
+    </div>
+  </div>
+
+</body>
 </html>

@@ -35,7 +35,7 @@ def receive_private_message(tinnhan):
     receipient_session_id = users[tinnhan['username']]
     message = tinnhan['message']
     print(message)
-    
+
     emit('private-message-from-server-receipient', message, room = receipient_session_id)
     emit('private-message-from-server-sender', message, room = request.sid)
 
@@ -96,4 +96,5 @@ def logout():
 
 
 if __name__ == '__main__':
-    socketio.run(app, host= '127.0.0.1', port= 3000, debug = False)
+    # socketio.run(app, host= '127.0.0.1', port= 3000, debug = False)
+    app.run(debug = True)
