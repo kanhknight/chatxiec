@@ -1,5 +1,6 @@
 var socket_message = io("http://localhost:3000/message");
 var socket_private_message = io("http://localhost:3000/private-mesage");
+var socket_player = io("http://localhost:3000/player");
 
 $(document).ready(function(){
 
