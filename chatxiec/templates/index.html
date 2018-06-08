@@ -13,9 +13,26 @@
 <body>
   <!-- <input type="text" id="text-message">
   <input type="button" id="btn-message" value="Send">
+<<<<<<< HEAD
   <div id="message-container"> -->
     {%include 'private-message.html'%}
     
   </div>
+=======
+  <div id="message-container"></div>
+
+
+  <h1> Herokuapp</h1>
+  {% if "loggedin" in session %}
+  <h2>hello:{{username}}</h2>
+  <br>
+  {% else %}
+  <a href="{{url_for('login')}}" method = 'get'>login</a>
+  <br>
+  {% endif %}
+  <a href="{{url_for('logout')}}">logout</a>
+  <br>
+  <a href="{{url_for('register')}}" method = 'post'>register</a>
+>>>>>>> 4a6dbfd63a830f86d61564e79f82cba40fd96d8d
 </body>
 </html>

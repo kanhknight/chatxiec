@@ -20,7 +20,6 @@ class Room(Document):
         description = StringField()
         password = StringField()
         viewer = IntField()
-        video = IntField()
         image = StringField()
 
 class Message(Document):
