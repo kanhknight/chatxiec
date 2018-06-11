@@ -10,6 +10,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 // 2. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
 var player;
+var isPlaying = false;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
@@ -34,21 +35,32 @@ $(document).ready(
 );
 
 // 3. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-    var x = 0;
-    $('#play-pause').click(function () {
-        if (x == 0) {
-            socket_player.on('server-send-play-pause', function(data){
-                event.target.playVideo();
-                x = 1;
-            });
-            socket_player.emit('client-send-play-pause', event.target.playVideo());
+function onPlayerReady(event) {    
+    socket_player.on('server-send-play-pause', function(data){
+        // event.target.playVideo();
+        // console.log('Có data play');
+        // x = 1;
+        // console.log(data);
+        if(data.play) {
+            event.target.playVideo();
+            isPlaying = true;
         } else {
-            socket_player.on('server-send-play-pause', function(data){
-                event.target.pauseVideo();
-                x = 0;
-            });
-            socket_player.emit('client-send-play-pause', event.target.pauseVideo());
+            event.target.pauseVideo();
+            isPlaying = false;
         }
+    });
+
+    $('#play-pause').click(function() {
+        if (isPlaying) {
+            event.target.pauseVideo();
+            isPlaying = false;
+            // socket_player.emit('client-send-play-pause', event.target.playVideo());
+        } else {
+            event.target.playVideo();
+            isPlaying = true;
+            // socket_player.emit('client-send-play-pause', event.target.pauseVideo());
+        }
+        var status = { play: isPlaying };
+        socket_player.emit("client-send-play-pause", status);
     });
 }
