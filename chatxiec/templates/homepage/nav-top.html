@@ -1,27 +1,14 @@
 <nav class="nav d-flex justify-content-between d-flex align-items-md-center bg-dark">
   <div class="col-md-1 h-80px d-flex align-items-md-center">
-    <img src="../../static/image/Logo_top.png" alt="" height="70" width="100">
+    <img src="../../static/image/Logo_top.png" alt="" usemap="#link" height="70" width="100">
+    <map name="link">
+      <area shape="rect" coords="0,0,100,100" alt="" href="{{url_for('index')}}">
+    </map>
   </div>
   <div class="h-60px">
     <h1 class='text-primary'>Let's chat and watch together!</h1>
   </div>
-
   <div id='sign-tab' class="col-md-4 h-80px d-flex justify-content-md-end">
-    <div id="login-box" class="col-md-4 h-80px d-flex justify-content-between d-flex align-items-md-center">
-      <div id="signin-image">
-        <img src="../../static/image/user Copy.png" alt="" height="36" width="36">
-      </div>
-      <div id="signin-text">
-        <a class="nav-link active text-dark" href="#">sign in</a>
-      </div>
-    </div>
-    <div id="signup-box" class="col-md-4 h-80px d-flex justify-content-between d-flex align-items-md-center">
-      <div id='signup-image'>
-        <img src="../../static/image/edit.png" alt="" height="36" width="36">
-      </div>
-      <div id='signup-text'>
-        <a class="nav-link active text-dark" href="#">sign up</a>
-      </div>
-    </div>
+    {% include 'homepage/before-login.html'%}
   </div>
 </nav>

@@ -78,13 +78,14 @@ def login():
         form = request.form
         username = form['username']
         password = form['password']
-
+        print(username)
+        print(password)
         #dùng để check thông tin thay cho vòng for vì vòng for bị ngắt khi gặp return
         user_data = User.objects(username = username) #xuất ra list chứa dictionary có key username = username
 
         if len(user_data) == 0: # check khi người dùng nhập sai
             flash("Khong ton tai username")
-            return redirect(url_for("login"))
+            return redirect(url_for("index"))
         else:
             for user in user_data: # dùng vòng for lấy dữ liệu khỏi list
                 if user.password == password:
@@ -97,6 +98,44 @@ def logout():
     # return "{0}".format(session['loggedin']) # username truyen dc qua session
     del session['loggedin']
     return render_template('index.html')
+
+@app.route('/update',methods=['GET','POST'])
+def update():
+    username = session['loggedin']
+    user_data = User.objects(username = username)
+    if request.method == "GET":
+        for user in user_data:
+            fullname = user['fullname']
+            email = user['email']
+            phonenumber = user['phonenumber']
+            image = user['image']
+        return render_template("update.html", fullname = fullname, email =email, phonenumber = phonenumber, image = image)
+    elif request.method == "POST":
+        form = request.form
+        fullname = form['fullname']
+        email = form['email']
+        phonenumber = form['phonenumber']
+        image = form['image']
+        user_data.update(set__fullname = fullname,set__email = email, set__phonenumber = phonenumber, set__image = image)
+        return redirect(url_for('update'),method ='GET')
+
+@app.route('/roomcreate',methods=['GET','POST'])
+def roomcreate():
+    if request.method == "GET":
+        return render_template("roomcreate.html")
+    elif request.method =="POST":
+        form = request.form
+        title = form['title']
+        description = form['description']
+        password = form['password']
+        image = form['image']
+        new_room = Room(title = title, description = description, password = password, viewer = 0, image = image)
+        new_room.save()
+        return redirect(url_for('index'))
+
+@app.route('/roomhost')
+def roomhost():
+    return render_template('roomhost.html')
 
 
 # Send play and pause
