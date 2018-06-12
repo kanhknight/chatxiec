@@ -2,7 +2,7 @@ from flask import *
 from flask_socketio import *
 from jinja2 import *
 import mlab
-from models.collection import User
+from models.collection import *
 
 mlab.connect()
 
@@ -151,5 +151,4 @@ def player():
 
 
 if __name__ == '__main__':
-    # socketio.run(app, host= '127.0.0.1', port= 3000, debug = False)
-    app.run(debug = True)
+    socketio.run(app, host= '127.0.0.1', port= 3000, debug = True)

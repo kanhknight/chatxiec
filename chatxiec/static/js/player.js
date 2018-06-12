@@ -16,6 +16,14 @@ function onYouTubeIframeAPIReady() {
         height: '390',
         width: '640',
         videoId: 'geKpK_TyH9Y',
+        playerVars: {
+            'autoplay': 1,
+            'controls': 0,
+            'autohide': 1,
+            'wmode': 'opaque',
+            'rel': 0,
+            'loop': 1
+        },
         events: {
             'onReady': onPlayerReady
         }
@@ -44,9 +52,11 @@ function onPlayerReady(event) {
         if(data.play) {
             event.target.playVideo();
             isPlaying = true;
+            console.log(isPlaying);
         } else {
             event.target.pauseVideo();
             isPlaying = false;
+            console.log(isPlaying);
         }
     });
 
