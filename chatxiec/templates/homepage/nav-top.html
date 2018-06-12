@@ -9,6 +9,10 @@
     <h1 class='text-primary'>Let's chat and watch together!</h1>
   </div>
   <div id='sign-tab' class="col-md-4 h-80px d-flex justify-content-md-end">
+    {% if "loggedin" in session%}
+    {% include 'homepage/after-login.html'%}
+    {% else %}
     {% include 'homepage/before-login.html'%}
+    {% endif %}
   </div>
 </nav>
