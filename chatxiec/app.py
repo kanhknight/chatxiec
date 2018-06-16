@@ -66,6 +66,7 @@ def register():
         phonenumber = form['phonenumber']
         new_user = User(fullname = fullname,username = username, password = password,
                         email =email, phonenumber = phonenumber, role = 0, image ="", status = 1, message_status = 1 )
+        session['loggedin'] = username
         # print(new_user.fullname)
         new_user.save()
         return redirect(url_for('index'))
@@ -91,7 +92,7 @@ def login():
                 if user.password == password:
                     session['loggedin'] = username
                     return redirect(url_for('index'))
-
+                    # return ('',204)
 
 @app.route('/logout')
 def logout():
@@ -129,14 +130,22 @@ def roomcreate():
         description = form['description']
         password = form['password']
         image = form['image']
-        new_room = Room(title = title, description = description, password = password, viewer = 0, image = image)
+        new_room = Room(username = session['loggedin'] ,title = title, description = description, password = password, viewer = 0, image = image)
         new_room.save()
-        return redirect(url_for('index'))
+        return redirect(url_for('index'),method='GET')
 
 @app.route('/roomhost')
 def roomhost():
     return render_template('roomhost.html')
 
+@app.route('/roomvisiter')
+def roomvisiter():
+    return render_template('roomvisiter.html')
+
+@app.route('/roomlist')
+def roomlist():
+    room_list = Room.objects(username = session['loggedin'])
+    return render_template('roomlist.html',room_list = room_list)
 
 # Send play and pause
 @socketio.on('client-send-play-pause', namespace='/player')
