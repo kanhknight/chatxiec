@@ -10,7 +10,7 @@
           <div class="w-100 h-30px d-flex justify-content-between">
             <div class="col-md-4 h-20px ">
               {% if 'loggedin' in session %}
-                <a href="{{url_for('roomvisiter')}}">Join now!</a>
+                <a href="{{url_for('room_detail')}}">Join now!</a>
               {% else %}
                 <a href="#" data-toggle="modal" data-target="#login-form">Join now!</a>
               {% endif %}
