@@ -1,3 +1,11 @@
+.h-2px{
+  height: 2px;
+}
+
+.h-5px{
+  height: 5px;
+}
+
 .h-80px{
   height: 80px;
 }
@@ -33,6 +41,10 @@
   height: 40px;
 }
 
+.h-44px{
+  height: 44px;
+}
+
 .h-48px{
   height: 48px;
 }
@@ -49,8 +61,16 @@
   height: 150px;
 }
 
+.h-220px{
+  height: 220px;
+}
+
 .h-200px{
   height: 200px;
+}
+
+.h-250px{
+  height: 250px;
 }
 
 .h-300px{
@@ -129,6 +149,14 @@ width: 79%;
   font-size:10px;
 }
 
+.bg-slide{
+  background-color: #e8e8e8;
+}
+
+.bg-slide1{
+  background-color: #6f6f6f;
+}
+
 .bg-gray{
   background-color: #e1dede;
 }
@@ -147,7 +175,11 @@ width: 79%;
 }
 
 .room{
-  margin-top: 70px;
+  margin-top: 60px;
+}
+
+.text-12px{
+  font-size: 12px;
 }
 
 .bg-gray-white{
@@ -175,11 +207,89 @@ width: 79%;
   margin-left: 10px;
 }
 
+.label-image-bottom{
+  margin-right: 30px;
+}
+
+.border-blue{
+  border-color: #add4fe;
+}
+
+.room-content{
+  margin-right: 10px;
+}
+
+.message-border{
+  border-radius: 12px;
+}
+
+.room-content-border{
+  border-color: #add4fe;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.bg-green1{
+  background-color: #01c7cd;
+}
+
+.text-blue1{
+  color: #69b0ff;
+}
+
+.bg-blue1{
+  background-color: #4da1ff;
+}
+
+.btn-blue1{
+
+}
+
+.text-cyan{
+  color: #08bcfe;
+}
+
+.bg-cyan{
+  background-color: #08bcfe;
+}
+
+.btn-cyan{
+  background-color:  #08bcfe;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  color: white;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.6s; /* Safari */
+  transition-duration: 0.6s;
+}
+
+.btn-cyan:hover{
+  background-color:#0497cd;
+  color:white;
+}
+
+.text-purple{
+  color: #f936fa;
+}
+
+#your-room-list-text{
+  font-family: sans-serif;
+}
+
+#cr-room-text{
+  margin: 10px auto;
+}
+
 #cr-room-btn{
   margin-right: 120px;
 }
 
-#br-room-btn{
+#yr-room-text{
+  margin: 10px auto;
+}
+
+#yr-room-btn{
   margin-left: 120px;
 }
 
@@ -189,7 +299,7 @@ width: 79%;
 
 #sign-tab{
   background-image: url('../image/Rectangle Copy.png');
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 #login-box{
@@ -202,6 +312,7 @@ width: 79%;
 
 #logo-bottom{
   margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 #Copyright{
@@ -209,20 +320,35 @@ width: 79%;
 }
 
 #message-contain{
-  margin-top: 5px;
-  margin-left: 20px;
-  width: 97%;
-  height: 425px;
-  overflow: auto;
+    width: 100%;
+    height:430px;
+    overflow: auto;
 }
 
 #name{
   font-size: 15px;
 }
 
+#name-host{
+  font-size: 15px;
+}
+
 #message{
-  font-size: 20px;
-  background-color: #417fff;
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+#message-host{
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+#message-box{
+  background-color: #09b4f1;
+}
+
+#message-box-host{
+  background-color: #f93939;
 }
 
 #resolution{
@@ -237,7 +363,7 @@ width: 79%;
 
 #room-contain{
   width: 100%;
-  height: 1200px;
+  height: 1160px;
   overflow: auto;
 }
 
@@ -256,7 +382,7 @@ width: 79%;
 }
 
 #register-modal{
-  margin: 60px auto;
+  margin: 36px auto;
 }
 
 #username-display{
@@ -267,6 +393,7 @@ width: 79%;
 
 #your-profile-text{
   margin-bottom: 20px;
+  font-family: cursive;
 }
 
 #save-image{
@@ -289,7 +416,7 @@ width: 79%;
 #logout-text{
   margin-bottom: 10px;
   font-size: 16px;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 #drop-file-img{
@@ -300,7 +427,101 @@ width: 79%;
   margin-top: 15px
 }
 
+#wait-room-contain{
+  overflow: auto;
+  height: 220px;
+  width: 100%;
+  padding:0px
+}
+
+#livetream-contain{
+  margin-top: 20px;
+}
+
+#double-up-image{
+  margin-right: 5px;
+}
+
 #create-image{
   margin-bottom: 3px;
   margin-right: 8px;
+}
+
+#chatbox{
+  margin: 0px;
+  padding: 0px;
+  background-color: #e1dede;
+}
+
+#host-image{
+  margin-left: 10px;
+  margin-top: 0px;
+}
+
+#message-inside-right{
+  margin-top: 26px;
+  padding-left: 150px;
+}
+
+#message-inside-left{
+  margin-top: 26px;
+  padding-right: 70px;
+}
+
+#message-inside-left-host{
+  margin-top: 26px;
+  padding-right: 70px;
+}
+
+#loginin-image{
+  margin-right: 0px;
+}
+
+#button-lock{
+  margin-left: 2px;
+}
+
+#heart-image{
+  margin-right: 5px;
+}
+
+#room-list-content{
+  padding: 0px;
+}
+
+#number-box{
+  margin-left: 7px;
+  margin-right: 15px;
+}
+
+#signup-image{
+  margin-right: 0px;
+}
+
+#heading-title{
+  font-family: inherit;
+  word-wrap: break-word;
+ -webkit-hyphens: auto;
+ -moz-hyphens: auto;
+ -ms-hyphens: auto;
+ -o-hyphens: auto;
+ hyphens: auto;
+}
+
+@media screen and (max-width: 768px) {
+    #heading-title{
+        font-size:14px;
+    }
+}
+
+@media screen and (max-width: 1308px){
+    #heading-title{
+      font-size:25px;
+    }
+    #signin-text{
+      font-size:10px;
+    }
+    #signup-text{
+      font-size:10px;
+    }
 }
