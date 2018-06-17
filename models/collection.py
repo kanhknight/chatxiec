@@ -16,6 +16,7 @@ class User(Document):
 
 
 class Room(Document):
+        userid = ObjectIdField()
         title = StringField()
         description = StringField()
         password = StringField()
@@ -23,12 +24,12 @@ class Room(Document):
         image = StringField()
 
 class Message(Document):
-        userid = StringField()
+        userid = ObjectIdField()
         message = ListField()
         message_status = IntField() # trạng thái hiển thị hoặc không
 
 class Video(Document):
-        roomid = StringField()
+        roomid = ObjectIdField()
         upcomming = ListField()
         videoimage = StringField()
         link = StringField()
