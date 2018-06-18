@@ -1,4 +1,4 @@
-
+var socket_player = io("https://chatxiec888.herokuapp.com/player");
 // 1. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 
