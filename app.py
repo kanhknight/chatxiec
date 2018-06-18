@@ -15,7 +15,7 @@ app.secret_key = 'this key is secret'
 app.config['SECRET_KEY'] = '123@#@45690@#'
 socketio = SocketIO(app)
 
-UPLOAD_FOLDER = 'static\image\\upload_image'
+UPLOAD_FOLDER = 'static/image/upload_image'
 ALLOWED_EXTENSIONS = set(['jpg','png'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def allowed_file(filename):

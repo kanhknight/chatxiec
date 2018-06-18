@@ -24,7 +24,6 @@ $(document).ready(function () {
 
     room_socket.on('connect', function () {
         var id = socket_message.io.engine.id;
-
         $('#message-input').keypress(function (event) {
             var keycode = (event.keyCode ? event.keyCode : event.which);
             if (keycode == '13') {

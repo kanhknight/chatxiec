@@ -10,6 +10,7 @@ def on_join(data):
     join_room(room)
     emit('server_send_noti_to_user_join_room', data, namespace = "/chatroom", room = room)
     print(username + " Joined "+ room)
+    
 
 @socketio.on('client_sent_message_to_room', namespace ='/chatroom')
 def client_sent_message_to_room(data):
