@@ -198,7 +198,6 @@ def fbi_warning():
 # Send play and pause
 
 import services.socket
-import services.roomchat
 
 
 @app.route('/player')
@@ -207,4 +206,4 @@ def player():
 
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000, debug=False)
+    socketio.run(app, host='0.0.0.0', port=3000, debug=False)
