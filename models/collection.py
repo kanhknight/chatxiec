@@ -29,6 +29,13 @@ class Message(Document):
         message = StringField()
         datetime = StringField()
 
+class RoomMessage(Document):
+        roomid = StringField()
+        userid = StringField()
+        clientid = StringField()
+        message = StringField()
+        datetime = StringField()
+
 class Video(Document):
         roomid = ObjectIdField()
         upcomming = ListField()

@@ -11,4 +11,7 @@ $(document).ready(function(){
         console.log(filepath);
         $('#file-selected').append(filepath);
     });
+    // data = {room: oqosdf;ádf;}
+    // emit("join")
+    
 });
