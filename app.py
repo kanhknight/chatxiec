@@ -242,6 +242,27 @@ def play_pause(data):
     emit('server-send-play-pause', data, broadcast=True)
     print(data)
 
+a = 0
+@socketio.on('connect', namespace='/message')
+def test_connect():
+    global a
+    a +=1
+    emit('my response', {'data': 'Connected'})
+    print('Connected! ', a)
+    emit('server_sent_count', a, namespace = "/message", broadcast = True)
+
+@socketio.on('disconnect', namespace = '/message')
+def test_disconnect():
+    global a
+    a -=1
+    print('Disconnected', a)
+    emit('server_sent_count', a, namespace = "/message", broadcast = True)
+        
+
+
+@socketio.on('client-sent-message', namespace = "/message")
+def client_sent_message(data):
+    emit('server_sent_message', data, namespace = "/message", broadcast = True)
 
 @app.route('/player')
 def player():
