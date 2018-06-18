@@ -1,6 +1,6 @@
-var socket_message = io("http://localhost:3000/message");
-var socket_private_message = io("http://localhost:3000/private-mesage");
-var socket_player = io("http://localhost:3000/player");
+var socket_message = io("https://chatxiec888.herokuapp.com/message");
+var socket_private_message = io("https://chatxiec888.herokuapp.com/private-mesage");
+var socket_player = io("https://chatxiec888.herokuapp.com/player");
 
 $(document).ready(function(){
 

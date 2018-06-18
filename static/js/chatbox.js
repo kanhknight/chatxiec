@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var socket_message = io('http://localhost:3000/message');
+    var socket_message = io('https://chatxiec888.herokuapp.com/message');
 
 
     var currentdate = new Date(); 
