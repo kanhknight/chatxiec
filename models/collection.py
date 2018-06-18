@@ -33,4 +33,4 @@ class Video(Document):
         upcomming = ListField()
         videoimage = StringField()
         link = StringField()
-        type = StringField()
+        video_type = StringField()
