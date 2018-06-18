@@ -35,11 +35,11 @@ def client_sent_message(data):
     new_message.save()
 
 # Lay message trong csdll
-    message_send = Message.objects().with_id(new_message.id)
+    message_send_user = Message.objects().with_id(new_message.id)
     data_to_send = {
-        'clientid' : message_send.clientid,
+        'clientid' : message_send_user.clientid,
         'username': username,
-        'message' : message_send.message
+        'message' : message_send_user.message
     }
 
     emit('server_sent_message', data_to_send, namespace = "/message", broadcast = True)
