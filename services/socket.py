@@ -4,6 +4,8 @@ from flask_socketio import emit
 from models.collection import Message, User
 from flask import session
 
+import services.roomchat
+
 @socketio.on('client-send-play-pause', namespace='/player')
 def play_pause(data):
     emit('server-send-play-pause', data, broadcast=True)

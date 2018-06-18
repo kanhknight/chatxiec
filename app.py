@@ -32,13 +32,6 @@ def allowed_file(filename):
 # Bước 1: Xử lý đăng ký user vào Dictionary
 users = {}
 
-
-# Bước 2: Xử lý gửi tin nhắn tới user được chỉ định
-
-# Kết thúc xử lý tin nhắn private cho user được chỉ định
-
-
-
 @app.route('/')
 def index():
     room_data = Room.objects()
@@ -111,7 +104,7 @@ def logout():
 
 
 @app.route('/update', methods=['GET', 'POST'])
-def update():
+def update1():
     username = session['loggedin']
     user_data = User.objects(username=username)
     if request.method == "GET":
@@ -205,7 +198,6 @@ def fbi_warning():
 # Send play and pause
 
 import services.socket
-import services.roomchat
 
 
 @app.route('/player')
