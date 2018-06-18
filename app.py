@@ -1,4 +1,5 @@
 from flask import *
+from datetime import datetime
 from flask_socketio import *
 from jinja2 import *
 import mlab
@@ -28,26 +29,10 @@ def allowed_file(filename):
     #     return False
     return check_1 and check_2
 
-@socketio.on('connect', namespace='/player')
-def connect():
-    print(request.sid)
-
-# Tin nhắn global
-
-
-@socketio.on('Client-send-message', namespace='/message')
-def Client_send_message(data):
-    print('User {0} gửi tin nhắn!'.format(request.sid))
-
-    # Server gửi tin nhắn global cho tất cả các user
-    emit('Server-send-message-all-client', data,
-         namespace='/message', broadcast=True)
-
 
 # Xử lý gửi tin nhắn private cho 1 user được chỉ định
 # Bước 1: Xử lý đăng ký user vào Dictionary
 users = {}
-
 
 @socketio.on('private-message-send-username', namespace='/private-mesage')
 def receive_username(username):
@@ -262,7 +247,26 @@ def test_disconnect():
 
 @socketio.on('client-sent-message', namespace = "/message")
 def client_sent_message(data):
-    emit('server_sent_message', data, namespace = "/message", broadcast = True)
+    username = session['loggedin']
+    # Luu message vao csdl
+    user = User.objects(username = username).first()
+    new_message = Message(
+        userid = str(user.id),
+        clientid = data['userid'],
+        message = data['message'],
+        datetime = data['date']
+    )
+    new_message.save()
+
+# Lay message trong csdll
+    message_send = Message.objects().with_id(new_message.id)
+    data_to_send = {
+        'clientid' : message_send.clientid,
+        'username': username,
+        'message' : message_send.message
+    }
+
+    emit('server_sent_message', data_to_send, namespace = "/message", broadcast = True)
 
 @app.route('/player')
 def player():
@@ -270,4 +274,4 @@ def player():
 
 
 if __name__ == '__main__':
-    socketio.run(app, host='127.0.0.1', port=3000, debug=True)
+    socketio.run(app, host='127.0.0.1', port=3000, debug=False)
