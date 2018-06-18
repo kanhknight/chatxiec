@@ -510,6 +510,7 @@ width: 79%;
   background-image: url('../image/tokuda.jpg');
   background-size: cover;
   background-attachment: fixed;
+  height: 780px;
 }
 
 #text-exception{
@@ -519,11 +520,13 @@ width: 79%;
 #fbi-warning{
   background-image: url('../image/fbi_warning.jpg');
   background-size: cover;
-  background-attachment: fixed;
 }
 
 #fbi-warning-bg{
   background-color: #0a0a0a;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 780px;
 }
 
 #avatar-count-contain-small{
