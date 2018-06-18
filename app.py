@@ -259,7 +259,6 @@ def client_sent_message_to_room(data):
         datetime = data['date']
     )
     new_room_message.save()
-
     message_send = RoomMessage.objects().with_id(new_room_message.id)
     data_to_send_from_server = {
         'clientid' : message_send.clientid,
