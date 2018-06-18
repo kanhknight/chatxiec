@@ -60,7 +60,7 @@ function onPlayerReady(event) {
         }
     });
 
-    $('#play-pause').click(function() {
+    $('#play-button').click(function() {
         if (isPlaying) {
             event.target.pauseVideo();
             isPlaying = false;
