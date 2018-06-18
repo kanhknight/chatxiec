@@ -104,7 +104,7 @@ def logout():
 
 
 @app.route('/update', methods=['GET', 'POST'])
-def update1():
+def update():
     username = session['loggedin']
     user_data = User.objects(username=username)
     if request.method == "GET":
@@ -198,6 +198,7 @@ def fbi_warning():
 # Send play and pause
 
 import services.socket
+import services.roomchat
 
 
 @app.route('/player')
