@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var pathname = window.location.pathname; 
+    var pathname = window.location.pathname;
     var parts = pathname.split("/");
     var last_part = parts[parts.length-1];
 
@@ -14,12 +14,12 @@ $(document).ready(function () {
     });
 
 
-    var currentdate = new Date(); 
+    var currentdate = new Date();
     var datetime = "Now: " + currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getFullYear() + " @ "  
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
+                + (currentdate.getMonth()+1)  + "/"
+                + currentdate.getFullYear() + " @ "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
                 + currentdate.getSeconds();
 
     room_socket.on('connect', function () {
@@ -45,7 +45,7 @@ $(document).ready(function () {
         room_socket.on('server_sent_message_to_room', function (data) {
             if (data.clientid != id) {
                 $('#message-contain').append(`<div id='message-inside-left' class='d-flex align-items-md-center'>
-<img src='http://placehold.it/100x100' class='rounded-circle message-object' height='30' width='30'>
+<img src='http://placehold.it/100x100' class='rounded-circle message-object ' height='32' width='32'>
 <h4 id='name' class='message-object text-muted'>`+ data.username + `</h4>
 <div id='message-box' class='message-border'>
 <h4 id='message' class='message-object text-white'><span>`+ data.message + `</span></h4>
@@ -59,7 +59,7 @@ $(document).ready(function () {
 <div id='message-box' class="message-border">
 <h4 id='message' class ='message-object rounded text-white'><span>`+ data.message + `</span></h4>
 </div>
-<img id='host-image' src="http://placehold.it/100x100" class="rounded-circle message-object" alt="" height="30" width="30">
+<img id='host-image' src="http://placehold.it/100x100" class="rounded-circle message-object" alt="" height="32" width="32">
 </div>`);
                 //By jQuery scrollTop
                 $("#message-contain").scrollTop($("#message-contain")[0].scrollHeight);

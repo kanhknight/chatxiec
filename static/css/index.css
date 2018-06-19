@@ -89,6 +89,10 @@
   height: 425px;
 }
 
+.h-512px{
+  height: 512px;
+}
+
 .h-560px{
   height: 560px;
 }
@@ -183,7 +187,7 @@ width: 79%;
 }
 
 .room{
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .text-12px{
@@ -261,6 +265,23 @@ width: 79%;
   background-color: #08bcfe;
 }
 
+.btn-blue{
+  border: none;
+  background-color: #007aff;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  color: white;
+  border-radius: 12px;
+  -webkit-transition-duration: 0.6s; /* Safari */
+  transition-duration: 0.6s;
+}
+
+.btn-blue:hover{
+  background-color:#0366d4;
+  color:white;
+}
+
 .btn-cyan{
   background-color:  #08bcfe;
   color: white;
@@ -279,6 +300,25 @@ width: 79%;
 
 .text-purple{
   color: #f936fa;
+}
+
+.first-word-uppercase{
+  display: block;
+}
+
+.first-word-uppercase:first-letter{
+    text-transform: uppercase;
+}
+
+.image-gray{
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+
+
+#room-name-text{
+  margin-left: 5px
 }
 
 #your-room-list-text{
@@ -330,7 +370,7 @@ width: 79%;
 #message-contain{
     width: 100%;
     height:430px;
-    overflow: auto;
+    overflow-x: auto;
 }
 
 #name{
@@ -353,6 +393,7 @@ width: 79%;
 
 #message-box{
   background-color: #09b4f1;
+  padding: 1px 6px;
 }
 
 #message-box-host{
@@ -373,6 +414,7 @@ width: 79%;
   width: 100%;
   height: 1160px;
   overflow: auto;
+  margin-top: 10px;
 }
 
 #login-icon{
@@ -396,7 +438,7 @@ width: 79%;
 #username-display{
   margin-right: 15px;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 #your-profile-text{
@@ -452,6 +494,7 @@ width: 79%;
 
 #create-image{
   margin-bottom: 3px;
+  margin-left: 8px;
   margin-right: 8px;
 }
 
@@ -535,6 +578,26 @@ width: 79%;
   overflow-x: auto;
 }
 
+#avatar-count-contain{
+
+}
+
+#login-text{
+  font-size:18px;
+}
+
+#signup-text{
+  font-size:18px;
+}
+
+#join-now-contain{
+
+}
+
+#card-room{
+  height: 450px;
+}
+
 #heading-title{
   font-family: inherit;
   word-wrap: break-word;
@@ -555,7 +618,7 @@ width: 79%;
     #heading-title{
       font-size:25px;
     }
-    #signin-text{
+    #login-text{
       font-size:10px;
     }
     #signup-text{

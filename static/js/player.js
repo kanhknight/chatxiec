@@ -16,7 +16,7 @@ var videoId = '6ZfuNTqbHE8';
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '500',
-        width: '49%',
+        width: '45%',
         videoId: videoId,
         playerVars: {
             'autoplay': 1,
@@ -60,9 +60,9 @@ $(document).ready(
 );
 
 // 3. The API will call this function when the video player is ready.
-function onPlayerReady(event) {  
-    
-    var playbackTime = function() { 
+function onPlayerReady(event) {
+
+    var playbackTime = function() {
         var time = player.getCurrentTime();
         console.log(time);
     }

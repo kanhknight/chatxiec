@@ -100,7 +100,7 @@ def login():
 def logout():
     # return "{0}".format(session['loggedin']) # username truyen dc qua session
     del session['loggedin']
-    return render_template('index.html')
+    return redirect(url_for('index'))
 
 
 @app.route('/update', methods=['GET', 'POST'])
@@ -165,17 +165,19 @@ def roomcreate():
 @app.route('/roomhost/<roomid>')
 def roomhost(roomid):
     user_data = User.objects(username = session['loggedin'])
+    room = Room.objects.with_id(roomid)
     for user in user_data:
         image = user['image']
-    return render_template('roomhost.html',roomid = roomid,image= image)
+    return render_template('roomhost.html',room = room, roomid = roomid, image = image)
 
 
 @app.route('/room-detail/<roomid>')
 def room_detail(roomid):
     user_data = User.objects(username = session['loggedin'])
+    room = Room.objects.with_id(roomid)
     for user in user_data:
         image = user['image']
-    return render_template('room-detail.html',roomid = roomid, image = image)
+    return render_template('room-detail.html',room = room, roomid = roomid, image = image)
 
 
 @app.route('/roomlist')
@@ -212,7 +214,7 @@ def test_disconnect():
     a = 10000
     print('Disconnected')
     emit('server_sent_count', a, namespace = "/message", broadcast = True)
-    
+
 @socketio.on('client-sent-message', namespace = "/message")
 def client_sent_message(data):
     username = session['loggedin']
@@ -243,7 +245,7 @@ def on_join(data):
     join_room(room)
     emit('server_send_noti_to_user_join_room', data, namespace = "/chatroom", room = room)
     print(username + " Joined "+ room)
-    
+
 
 @socketio.on('client_sent_message_to_room', namespace ='/chatroom')
 def client_sent_message_to_room(data):
