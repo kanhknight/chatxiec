@@ -28,6 +28,9 @@ function onYouTubeIframeAPIReady() {
             'onReady': onPlayerReady
         }
     });
+
+    console.log(player.getCurrentTime());
+
     // document.getElementById('play-pause').onclick = function () {
     //     player.playVideo();
     // };

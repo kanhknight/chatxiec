@@ -200,7 +200,6 @@ def fbi_warning():
 @socketio.on('client-send-play-pause', namespace='/player')
 def play_pause(data):
     emit('server-send-play-pause', data, broadcast=True)
-    print(data)
 
 @socketio.on('connect', namespace='/message')
 def test_connect():
