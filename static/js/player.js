@@ -28,8 +28,8 @@ function onYouTubeIframeAPIReady() {
             'onReady': onPlayerReady
         }
     });
-
-    console.log(player.getCurrentTime());
+    var time = player.getCurrentTime();
+    console.log(time);
 
     // document.getElementById('play-pause').onclick = function () {
     //     player.playVideo();
