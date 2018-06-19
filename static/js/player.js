@@ -11,25 +11,25 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //    after the API code downloads.
 var player;
 var isPlaying = false;
+var videoId = '6ZfuNTqbHE8';
+
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: '6ZfuNTqbHE8',
+        videoId: videoId,
         playerVars: {
             'autoplay': 1,
-            'controls': 0,
             'autohide': 1,
             'wmode': 'opaque',
             'rel': 0,
             'loop': 1
         },
         events: {
-            'onReady': onPlayerReady
+            'onReady': onPlayerReady,
+            'onStateChange': onStateChange
         }
     });
-    var time = player.getCurrentTime();
-    console.log(time);
 
     // document.getElementById('play-pause').onclick = function () {
     //     player.playVideo();
@@ -39,6 +39,20 @@ function onYouTubeIframeAPIReady() {
     // };
 }
 
+function onStateChange(event) {
+    var state = event.data;
+    if (state == 1) {
+        // PLAYING
+        var status = { play: true };
+        socket_player.emit("client-send-play-pause", status);
+    }
+    else if (state == 2) {
+        // PAUSED
+        var status = { play: false };
+        socket_player.emit("client-send-play-pause", status);
+    }
+}
+
 $(document).ready(
     function(){
         socket_player.emit('connect');
@@ -46,7 +60,15 @@ $(document).ready(
 );
 
 // 3. The API will call this function when the video player is ready.
-function onPlayerReady(event) {    
+function onPlayerReady(event) {  
+    
+    var playbackTime = function() { 
+        var time = player.getCurrentTime();
+        console.log(time);
+    }
+
+    setInterval(playbackTime, 500);
+
     socket_player.on('server-send-play-pause', function(data){
         // event.target.playVideo();
         // console.log('Có data play');
@@ -63,17 +85,17 @@ function onPlayerReady(event) {
         }
     });
 
-    $('#play-button').click(function() {
-        if (isPlaying) {
-            event.target.pauseVideo();
-            isPlaying = false;
-            // socket_player.emit('client-send-play-pause', event.target.playVideo());
-        } else {
-            event.target.playVideo();
-            isPlaying = true;
-            // socket_player.emit('client-send-play-pause', event.target.pauseVideo());
-        }
-        var status = { play: isPlaying };
-        socket_player.emit("client-send-play-pause", status);
-    });
+    // $('#play-button').click(function() {
+    //     if (isPlaying) {
+    //         event.target.pauseVideo();
+    //         isPlaying = false;
+    //         // socket_player.emit('client-send-play-pause', event.target.playVideo());
+    //     } else {
+    //         event.target.playVideo();
+    //         isPlaying = true;
+    //         // socket_player.emit('client-send-play-pause', event.target.pauseVideo());
+    //     }
+    //     var status = { play: isPlaying };
+    //     socket_player.emit("client-send-play-pause", status);
+    // });
 }
